@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="application/json">
+    <title>easyli示例</title>
+    <link href="../js/plugin/easyui/themes/default/easyui.css" rel="stylesheet" type="text/css" />
+    <link href="../js/plugin/easyui/themes/icon.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/plugin/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../js/plugin/easyui/jquery.easyui.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $.parser.parse();
+        });
+
+
+
+    </script>
+</head>
+
+<body>
+    <div>
+    <a  class="easyui-linkbutton" onClick="javascript:$('.easyui-panel').panel('open')" href="javascript:void(0)">打开</a>
+    <a class="easyui-linkbutton" onClick="javascript:$('.easyui-panel').panel('close')" href="javascript:void(0)">关闭</a>
+    </div>
+    <div style="width:400px;height:300px;padding: inherit" class="easyui-panel" title="basic panel" data-options="iconCls:'icon-save',closable:true,collapsible:true,minimizable:true,
+    maximizable:true,tools:'#tt',footer:'#foot'">
+        <p>easyui panel的dom示例</p>
+        <ul>
+            <li>1.this is the first line.</li>
+            <li>2.this is the second line.</li>
+            <li>3.this is the third line.</li>
+            <li>4.this is the forth line.</li>
+            <li>5.this is the fifth line.</li>
+            <li>6.this is the sixth line.</li>
+        </ul>
+    </div>
+
+    <div id="tt">
+        <a href="javascript:void(0)" onclick="javascript:alert('add')" class="icon-add"></a>
+        <a href="javascript:void(0)" onclick="javascript:alert('edit')" class="icon-edit"></a>
+        <a href="javascript:void(0)" onclick="javascript:alert('cut')" class="icon-cut"></a>
+        <a href="javascript:void(0)" onclick="javascript:alert('help')" class="icon-help"></a>
+    </div>
+
+    <div id="foot">
+        Basic foot
+    </div>
+
+</body>
+</html>

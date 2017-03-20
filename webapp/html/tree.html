@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>easyui tree demo</title>
+    <link type="text/css" rel="stylesheet" href="../js/plugin/easyui/themes/default/easyui.css" />
+    <link type="text/css" rel="stylesheet" href="../js/plugin/easyui/themes/icon.css" />
+    <script type="text/javascript" src="../js/plugin/jquery/jquery.js" ></script>
+    <script type="text/javascript" src="../js/plugin/easyui/jquery.easyui.min.js" ></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $.parser.parse();
+        });
+    </script>
+
+</head>
+<body>
+<div  style="width:400px;height: 300px;float:left">
+    <h2>基础树</h2>
+    <div class="easyui-panel">
+        <ul class="easyui-tree">
+            <li>
+                <span>Documents</span>
+
+                <ul>
+                    <li data-options="state:'closed'">
+                        <span>photos</span>
+                        <ul>
+                            <li>b1</li>
+                            <li>b2</li>
+                            <li>b3</li>
+                            <li>b4</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>files</span>
+                        <ul>
+                            <li>c1</li>
+                            <li>c2</li>
+                            <li>c3</li>
+                            <li>c4</li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+            <li>a2</li>
+            <li>a3</li>
+            <li>a4</li>
+        </ul>
+    </div>
+    <h2>animal tree</h2>
+    <div class="easyui-panel">
+        <ul class="easyui-tree" data-options="url:'tree_data1.json',method:'get',animal:true">
+
+        </ul>
+
+    </div>
+
+    <h2>checked tree</h2>
+    <div class="easyui-panel">
+        <div style="margin:20px 0px;">
+        <a href="#" onClick="getValue()" class="easyui-linkbutton">getValue</a>
+        </div>
+        <div style="margin:10px 0px;">
+            <input checked type="checkbox" onchange="$('#tt').tree({cascadeCheck:$(this).is(':checked')})" />全单选切换
+            <input type="checkbox" onchange="$('#tt').tree({onlyLeafCheck:$(this).is(':checked')})" >父节点不显示框
+        </div>
+        <ul id="tt" class="easyui-tree" data-options="checkbox:true,url:'tree_data1.json',method:'get',animal:true,
+        checkbox:function(node){
+            if(node.id!=11&&node.id!=122){
+                return true;
+            }
+        }">
+        </ul>
+
+    </div>
+</div>
+
+<div style="float: right;width:400px;height: 300px; margin:10px;">
+    <h2>tree node icon</h2>
+    <div class="easyui-panel">
+        <ul class="easyui-tree" data-options="url:'tree_data2.json',method:'get',animal:true,lines:true">
+
+        </ul>
+
+    </div>
+</div>
+
+<script>
+    function getValue(){
+        var nodes = $('#tt').tree('getChecked');
+        var s = '';
+        var i = 0;
+        for(;i<nodes.length;i++){
+            if(s!='') s+=',';
+            s+=nodes[i].text;
+        }
+
+        alert(s);
+
+
+    }
+
+
+</script>
+
+</body>
+</html>
